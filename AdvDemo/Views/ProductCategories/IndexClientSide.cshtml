@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<table id="dt"></table>
+
+<script>
+
+    $(() => { 
+        
+        let d = null;
+
+        $.ajax({
+            url: "/api/v1/productCategories/",
+            data: {
+                zipcode: 97201
+            },
+            success: function (result) {
+
+                new DataTable('#dt', {
+                    data: result,
+                    columns: [
+                        { data: "name", title:"Name" },
+                        { data: "parentProductCategory.name", title: "Parent Category" },
+                        { data: "rowguid", title: "RowGuid" },
+                    ]
+                });
+
+            },
+            Error: (result) => {
+                alert("OOOOPs");
+            }
+        });
+    
+    });
+
+</script>

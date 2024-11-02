@@ -43,9 +43,12 @@ public partial class AdventureWorksContext : DbContext
                 .HasDefaultValueSql("(newid())")
                 .HasColumnName("rowguid");
 
+            /*
             entity.HasOne(d => d.ParentProductCategory).WithMany(p => p.InverseParentProductCategory)
                 .HasForeignKey(d => d.ParentProductCategoryId)
                 .HasConstraintName("FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID");
+            */
+
         });
         modelBuilder.HasSequence<int>("SalesOrderNumber", "SalesLT");
 

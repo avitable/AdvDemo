@@ -17,7 +17,6 @@ string? connStringName = builder.Configuration["DbConnectionStringName"] ??
 string? connString = builder.Configuration[$"ConnectionStrings:{connStringName}"] ??
     throw new MissingConfigurationException($"DB connection string is not defined.  Make sure to set your connection string named {connStringName} in your configuration.");
 
-// register db connection
 builder.Services.AddDbContext<AdventureWorksContext>(options => 
     options.UseSqlServer(connString));
 
@@ -45,7 +44,6 @@ app.UseAuthorization();
 
 app.MapGet("/appConfig", (IConfiguration config) => config.AsEnumerable());
 app.MapGet("/appEnv", () => Environment.GetEnvironmentVariables());
-
 
 app.MapControllerRoute(
     name: "default",

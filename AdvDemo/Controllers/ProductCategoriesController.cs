@@ -22,8 +22,14 @@ namespace AdvDemo.Controllers
         // GET: ProductCategories
         public async Task<IActionResult> Index()
         {
-            var adventureWorksContext = _context.ProductCategories.Include(p => p.ParentProductCategory);
-            return View(await adventureWorksContext.ToListAsync());
+            var productCategories = _context.ProductCategories.Include(p => p.ParentProductCategory);
+            return View(await productCategories.ToListAsync());
+        }
+
+        // GET: ProductCategories
+        public IActionResult IndexClientSide()
+        {
+            return View();
         }
 
         // GET: ProductCategories/Details/5
@@ -160,5 +166,10 @@ namespace AdvDemo.Controllers
         {
             return _context.ProductCategories.Any(e => e.ProductCategoryId == id);
         }
+
+
     }
+
+
+
 }
