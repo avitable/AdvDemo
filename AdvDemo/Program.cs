@@ -1,4 +1,5 @@
 using AdvDemo;
+using AdvDemo.Exceptions;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,9 +9,17 @@ builder.Services.AddHttpLogging(o => { });
 builder.Logging.AddFilter(
     "Microsoft.AspNetCore.HttpLogging", LogLevel.Information);
 
+// Set up database configuration.
+
+string? connStringName = builder.Configuration["DbConnectionStringName"] ??
+    throw new MissingConfigurationException("DB Connection string name is not defined.  Make sure to set DbConnectionStringName in your configuration.");
+
+string? connString = builder.Configuration[connStringName] ??
+    throw new MissingConfigurationException($"DB connection string is not defined.  Make sure to set your connection string named {connStringName} in your configuration.");
+
 // register db connection
 builder.Services.AddDbContext<AdventureWorksContext>(options => 
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(connString));
 
 // Add MVC
 builder.Services.AddControllersWithViews();
@@ -33,6 +42,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
+
+app.MapGet("/chunky", (IConfiguration config) => config.AsEnumerable());
 
 app.MapControllerRoute(
     name: "default",
