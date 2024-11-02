@@ -2,14 +2,37 @@ html {
   font-size: 14px;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+@media (min-width:320px) and (max-width: 800px) { /* smaller than a tablet? */
+    .flexrow {
+        flex-direction: column;
+    }
+
+    .sideimg {
+        width: auto;
+    }
+}
+
+@media (min-width:801px) { /* tablet, landscape iPad, lo-res laptops ands desktops */
+    html {
+        font-size: 16px;
+    }
+    .flexrow {
+        flex-direction: row;
+    }
+
+    .sideimg {
+        width: 33%;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+.flexrow {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
 }
 
 html {
@@ -22,7 +45,18 @@ body {
 }
 
 .sideimg {
-    min-width: 200px;
-    width: 30%;
     height: auto;
+    display: block;
+}
+
+.infobox {
+    border: 1px solid #aaa;
+    border-radius: 15px;
+    background: #F5F5F5;
+    color: #767676;
+    padding: 10px;
+}
+
+.rightcol {
+
 }
