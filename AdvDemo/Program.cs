@@ -14,7 +14,7 @@ builder.Logging.AddFilter(
 string? connStringName = builder.Configuration["DbConnectionStringName"] ??
     throw new MissingConfigurationException("DB Connection string name is not defined.  Make sure to set DbConnectionStringName in your configuration.");
 
-string? connString = builder.Configuration[connStringName] ??
+string? connString = builder.Configuration[$"ConnectionStrings:{connStringName}"] ??
     throw new MissingConfigurationException($"DB connection string is not defined.  Make sure to set your connection string named {connStringName} in your configuration.");
 
 // register db connection
@@ -43,7 +43,9 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 
-app.MapGet("/chunky", (IConfiguration config) => config.AsEnumerable());
+app.MapGet("/appConfig", (IConfiguration config) => config.AsEnumerable());
+app.MapGet("/appEnv", () => Environment.GetEnvironmentVariables());
+
 
 app.MapControllerRoute(
     name: "default",
