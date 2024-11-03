@@ -48,6 +48,7 @@ public partial class AdventureWorksContext : DbContext
         modelBuilder.HasDefaultSchema("SalesLT");
 
         modelBuilder.Entity<ProductCategory>().ToTable("ProductCategory");
+        modelBuilder.Entity<Customer>().ToTable("Customer");
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

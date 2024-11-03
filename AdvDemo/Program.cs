@@ -1,5 +1,7 @@
 using AdvDemo;
+using AdvDemo.Api;
 using AdvDemo.Exceptions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,7 +19,7 @@ string? connStringName = builder.Configuration["DbConnectionStringName"] ??
 string? connString = builder.Configuration[$"ConnectionStrings:{connStringName}"] ??
     throw new MissingConfigurationException($"DB connection string is not defined.  Make sure to set your connection string named {connStringName} in your configuration.");
 
-builder.Services.AddDbContext<AdventureWorksContext>(options => 
+builder.Services.AddDbContext<AdventureWorksContext>(options =>
     options.UseSqlServer(connString));
 
 // Add MVC
@@ -41,6 +43,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
+
+app.MapGet("/api/v1/customers", async ([FromServices] AdventureWorksContext ctx) =>
+{
+    return await new CustomerHandler(ctx).GetCustomers();
+});
 
 app.MapGet("/appConfig", (IConfiguration config) => config.AsEnumerable());
 app.MapGet("/appEnv", () => Environment.GetEnvironmentVariables());

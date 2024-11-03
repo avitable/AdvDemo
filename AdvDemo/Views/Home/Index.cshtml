@@ -1,8 +1,86 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "About This Page";
 }
 
+
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1>@ViewData["Title"]</h1>
+    <p>
+        Hi!  This is a demo site I put together to excersise several of the components I expect I'd be using at the VCU School of Medicine.  My goal here was to
+        exercise as much of the development stack as I could.  In some cases I use a technique to simply familiarize myself myself with it.  For example, I
+        configure table entities with both fluent and attribute syntax.  Under normal circumstances I'd be inclined to pick a technique and stick to it for consistency.
+
+        Two invaluable resources I used for the excersise were ASP.NET In Action, and Programming C#.
+
+        I spent a large chunk of time getting to know the plumbing of ASP.NET, how middleware works, how to route requests to controllers, and how to
+        get access to dependencies through the DI container.  At this point I have a fairly good gist of the architecture, though I would not say I'm
+        ready to teach a class in it yet!
+    </p>
+
+    <div class="flexrow archbox-container bottom-margin">
+        <div class="archbox">
+            <h3>App Components</h3>
+            <p>ASP.NET 8 / .NET 8: MVC controllers, Minimal API, Web API</p>
+            <p>Sql Server 2014</p>
+            <p>Azure App Service</p>
+            <p>Azure Blob Storage (for images)</p>
+            <p><a href="https://github.com/avitable/AdvDemo">Github Project</a></p>
+        </div>
+
+        <div class="archbox">
+            <h3>Dev Tools</h3>
+            <p>Windows 11 on Macbook Pro via Paralells.</p>
+            <p>Visual Studio 2022</p>
+            <p>SSMS</p>
+            <p>Git Bash</p>
+        </div>
+
+        <div class="archbox">
+            <h3>Database</h3>
+            <p>Entity Framework Core (scaffolded then customized)</p>
+            <p>AdventureWorks</p>
+            <p>Connection Strings in Environment Variables</p>
+        </div>
+
+        <div class="archbox">
+            <h3>Frontend</h3>
+            <p>jQuery</p>
+            <p>Datatables.Net</p>
+            <p>CSS Flexbox w/ Media Queries</p>
+        </div>
+    </div>
+
+</div>
+
+<h1 class="text-center">About Me</h1>
+
+<div class="flexrow bottom-margin">
+    <img src="https://avitablestorage.blob.core.windows.net/images/fam.jpg" class="sideimg">
+    <div class="infobox rightcol">
+        <p>This is my family this past summer, when went on a trip to see family in Vietnam.  It was quite a trip, and though we were busy with
+            family much of the time, we were able to experience a slice of Vietnamese culture and history. 
+
+            When life is not so busy with homework or school, the girls and I will get in some time playing Mario Kart, Streets of Rage 4, 
+            or completing Final Fantasy 7 Rebirth (which we expect to finally achieve in 2026), 
+        </p>
+    </div>
+</div>
+
+<div class="flexrow bottom-margin">
+    <img src="https://avitablestorage.blob.core.windows.net/images/guitar.jpg" class="sideimg">
+    <div class="infobox rightcol">
+        <p>I'm one of the guitarists for What's Our Age Again, a 90's and 2000's tribute band.  We play quite a bit of pop punk and emo selections from our youth. This picture
+            was last year at the Broadberry. Squad goals are eventually to sell out the venue - we were within 15 or so at this show.  Catch us next at River City Roll on Friday, Nov. 15th.
+        </p>
+    </div>
+</div>
+
+<div class="flexrow bottom-margin">
+    <img src="https://avitablestorage.blob.core.windows.net/images/synth.jpg" class="sideimg">
+    <div class="infobox rightcol">
+        <p>
+            When I have time 
+        </p>
+    </div>
 </div>

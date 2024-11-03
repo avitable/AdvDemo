@@ -3,16 +3,18 @@ html {
 }
 
 @media (min-width:320px) and (max-width: 800px) { /* smaller than a tablet? */
+
     .flexrow {
         flex-direction: column;
     }
-
     .sideimg {
         width: auto;
     }
-
     .infobox {
         margin: 15px 0px 0px 0px;
+    }
+    .archbox {
+        width: 100%;
     }
 }
 
@@ -20,18 +22,21 @@ html {
     html {
         font-size: 16px;
     }
+
     .flexrow {
         flex-direction: row;
     }
-
     .sideimg {
         width: 25%;
     }
-
     .infobox {
         margin: 0px 0px 0px 15px;
         width: 75%;
     }
+    .archbox {
+        width: 25%;
+    }
+
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -41,7 +46,15 @@ html {
 .flexrow {
     display: flex;
     flex-wrap: nowrap;
+}
+
+.bottom-margin {
     margin-bottom: 20px;
+}
+
+.archbox-container {
+    align-items: top;
+    justify-content: center;
 }
 
 html {
@@ -65,6 +78,16 @@ body {
     background: #F5F5F5;
     color: #767676;
     padding: 10px;
+}
+
+.archbox {
+    border: 1px dotted #258cfb;
+    border-radius: 15px;
+    background: #F5F5F5;
+    color: #767676;
+    padding: 10px;
+    box-shadow: 0px 5px 10px #aaa;
+    margin: 5px;
 }
 
 .rightcol {
