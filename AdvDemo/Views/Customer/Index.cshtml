@@ -6,36 +6,46 @@
     <h1>@ViewData["Title"]</h1>
 </div>
 
-<table id="dt"></table>
+<div class="text-center" id="spinner">
+    <img src="~/icons/spinner.svg"
+         alt="spinner"
+         height="100"
+         width="100" />
+</div>
+
+<table id="dt"></table> 
+
 
 <script>
 
-    $.ajax({
-        url: "/api/v1/customers/",
-        data: {},
-        success: function (result) {
+    $(() => {
+        $.ajax({
+            url: "/api/v1/customers/",
+            data: {},
+            beforeSend: function () {
+                $("#spinner").display = "visible";
+            },
+            success: function (result) {
+                
+                $("#spinner").hide("puff",200);
 
-            new DataTable('#dt', {
-                data: result,
-                processing: true,
-                responsive: true,
-                columns: [
-                    { data: "lastName", title: "Last Name" },
-                    { data: "firstName", title: "FirstName" },
-                    { data: "emailAddress", title: "Email" },
-                    { data: "phone", title: "Phone" }
-                ]
-            });
+                let dt = new DataTable('#dt', {
+                    data: result,
+                    processing: true,
+                    responsive: true,
+                    columns: [
+                        { data: "lastName", title: "Last Name" },
+                        { data: "firstName", title: "FirstName" },
+                        { data: "emailAddress", title: "Email" },
+                        { data: "phone", title: "Phone" }
+                    ],
+                });
 
-        },
-        Error: (result) => {
-            alert("OOOOPs");
-        }
-    });
-
-    $(() => { 
-        
-
+            },
+            Error: (result) => {
+                alert("OOOOPs");
+            }
+        });
     
     });
 
