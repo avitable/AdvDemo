@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Customers";
+}
+
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+</div>
+
+<table id="dt"></table>
+
+<script>
+
+    $.ajax({
+        url: "/api/v1/customers/",
+        data: {},
+        success: function (result) {
+
+            new DataTable('#dt', {
+                data: result,
+                processing: true,
+                responsive: true,
+                columns: [
+                    { data: "lastName", title: "Last Name" },
+                    { data: "firstName", title: "FirstName" },
+                    { data: "emailAddress", title: "Email" },
+                    { data: "phone", title: "Phone" }
+                ]
+            });
+
+        },
+        Error: (result) => {
+            alert("OOOOPs");
+        }
+    });
+
+    $(() => { 
+        
+
+    
+    });
+
+</script>
