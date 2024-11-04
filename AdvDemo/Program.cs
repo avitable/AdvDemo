@@ -24,6 +24,9 @@ builder.Services.AddDbContext<AdventureWorksContext>(options =>
 // Add MVC
 builder.Services.AddControllersWithViews();
 
+// Add razor pages
+builder.Services.AddRazorPages();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -52,6 +55,8 @@ app.MapGet("/api/v1/customers", async ([FromServices] AdventureWorksContext ctx)
 
 app.MapGet("/appConfig", (IConfiguration config) => config.AsEnumerable());
 app.MapGet("/appEnv", () => Environment.GetEnvironmentVariables());
+
+app.MapRazorPages();
 
 // Test out some MVC style routes:
 

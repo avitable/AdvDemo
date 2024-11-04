@@ -11,7 +11,7 @@ html {
         width: auto;
     }
     .infobox {
-        margin: 15px 0px 0px 0px;
+        margin: 10px 0px 0px 0px;
     }
     .archbox {
         width: 100%;
@@ -30,7 +30,7 @@ html {
         width: 25%;
     }
     .infobox {
-        margin: 0px 0px 0px 15px;
+        margin: 0px 0px 0px 10px;
         width: 75%;
     }
     .archbox {
@@ -88,6 +88,17 @@ body {
     padding: 10px;
     box-shadow: 0px 5px 10px #aaa;
     margin: 5px;
+}
+
+.infoboxfull {
+    border: 1px dotted #258cfb;
+    border-radius: 15px;
+    background: #F5F5F5;
+    color: #767676;
+    padding: 10px;
+    box-shadow: 0px 5px 10px #aaa;
+    margin: 5px;
+    width:100%;
 }
 
 .rightcol {

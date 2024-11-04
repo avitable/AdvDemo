@@ -43,7 +43,7 @@
                             {
                                 data: null,
                                 render: function (data, type, row, meta) {
-                                    return '<a href="/Customer/ManageCustomer/' + row.customerId + '">Edit</a>';
+                                    return '<a href="/Customer/CustomerManagement/' + row.customerId + '">Edit</a>';
                                 }
                             }
                         ]
@@ -58,3 +58,12 @@
     });
 
 </script>
+
+<div class="infoboxfull" style="margin-top: 15px;">
+    <p>
+    This page was build from an MVC controller using Datatables for the data display.
+    The Datatable calls a Minimal API method which provides customer data from the Adventureworks database.
+    In a typical scenario I might offload the paging and sorting to the server.  For the purposes of the
+    demo, Datatables just loads all the customers into browser memory, and handles the heavy lifting.
+    </p>
+</div>
