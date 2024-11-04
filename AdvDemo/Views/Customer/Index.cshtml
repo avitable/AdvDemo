@@ -13,8 +13,9 @@
          width="100" />
 </div>
 
-<table id="dt"></table> 
+<table id="dt"></table>
 
+<!-- -->
 
 <script>
 
@@ -26,19 +27,26 @@
                 $("#spinner").display = "visible";
             },
             success: function (result) {
-                
-                $("#spinner").hide("puff",200);
+
+                $("#spinner").hide("puff", 200);
 
                 let dt = new DataTable('#dt', {
                     data: result,
                     processing: true,
                     responsive: true,
-                    columns: [
-                        { data: "lastName", title: "Last Name" },
-                        { data: "firstName", title: "FirstName" },
-                        { data: "emailAddress", title: "Email" },
-                        { data: "phone", title: "Phone" }
-                    ],
+                    columns:
+                        [
+                            { data: "lastName", title: "Last Name" },
+                            { data: "firstName", title: "FirstName" },
+                            { data: "emailAddress", title: "Email" },
+                            { data: "phone", title: "Phone" },
+                            {
+                                data: null,
+                                render: function (data, type, row, meta) {
+                                    return '<a href="/Customer/ManageCustomer/' + row.customerId + '">Edit</a>';
+                                }
+                            }
+                        ]
                 });
 
             },
@@ -46,7 +54,7 @@
                 alert("OOOOPs");
             }
         });
-    
+
     });
 
 </script>

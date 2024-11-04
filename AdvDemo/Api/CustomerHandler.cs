@@ -7,7 +7,6 @@ namespace AdvDemo.Api
     {
 
         protected AdventureWorksContext _context;
-        protected ILogger _logger;
 
         public CustomerHandler(AdventureWorksContext ctx) 
         {

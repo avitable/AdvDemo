@@ -11,8 +11,7 @@ builder.Services.AddHttpLogging(o => { });
 builder.Logging.AddFilter(
     "Microsoft.AspNetCore.HttpLogging", LogLevel.Information);
 
-// Set up database configuration.
-
+// Set up database configuration
 string? connStringName = builder.Configuration["DbConnectionStringName"] ??
     throw new MissingConfigurationException("DB Connection string name is not defined.  Make sure to set DbConnectionStringName in your configuration.");
 
@@ -44,6 +43,8 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 
+// Test out some Minimal API routes:
+
 app.MapGet("/api/v1/customers", async ([FromServices] AdventureWorksContext ctx) =>
 {
     return await new CustomerHandler(ctx).GetCustomers();
@@ -51,6 +52,8 @@ app.MapGet("/api/v1/customers", async ([FromServices] AdventureWorksContext ctx)
 
 app.MapGet("/appConfig", (IConfiguration config) => config.AsEnumerable());
 app.MapGet("/appEnv", () => Environment.GetEnvironmentVariables());
+
+// Test out some MVC style routes:
 
 app.MapControllerRoute(
     name: "default",
