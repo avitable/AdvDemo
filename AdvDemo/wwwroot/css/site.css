@@ -16,6 +16,9 @@ html {
     .archbox {
         width: 100%;
     }
+    .basictext {
+        width:100%
+    }
 }
 
 @media (min-width:801px) { /* tablet, landscape iPad, lo-res laptops ands desktops */
@@ -35,6 +38,10 @@ html {
     }
     .archbox {
         width: 25%;
+    }
+
+    .basictext {
+        width: 50%;
     }
 
 }
@@ -90,7 +97,7 @@ body {
     margin: 5px;
 }
 
-.infoboxfull {
+.basictext {
     border: 1px dotted #258cfb;
     border-radius: 15px;
     background: #F5F5F5;
@@ -98,7 +105,54 @@ body {
     padding: 10px;
     box-shadow: 0px 5px 10px #aaa;
     margin: 5px;
-    width:100%;
+}
+
+.col100 {
+    width: 100%;
+}
+
+.col50 {
+    width: 50%;
+}
+
+.col33 {
+    width: 33%
+}
+
+.col25 {
+    width: 25%
+}
+
+.p10 {
+    padding: 10px;
+}
+
+.p15 {
+    padding: 15px;
+}
+
+.p20 {
+    padding: 20px;
+}
+
+.mt10 {
+    margin-top:10px;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.autowidth {
+    width: 50%;
+}
+
+ul li.green::marker {
+    color: green;
+}
+
+ul li.red::marker {
+    color: red;
 }
 
 .rightcol {

@@ -1,7 +1,65 @@
-﻿@page "{customerId}"
+﻿@page "{customerId?}"
 @using AdvDemo.Pages
 
 @model CustomerManagementModel
 @{
+    ViewData["Title"] = "Manage Customer";
 }
+
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+</div>
+
+<form method="post">
+
+    <div class="flexrow col100">
+
+        <div id="customer" class="basictext p20">
+
+            <input class="form-control" asp-for="CustomerBindingModel.CustomerId" />
+
+            <div class="form-group mb10">
+                <label asp-for="CustomerBindingModel.FirstName"></label>
+                <input class="form-control" asp-for="CustomerBindingModel.FirstName" />
+                <span asp-validation-for="CustomerBindingModel.FirstName"></span>
+            </div>
+
+            <div class="form-group mb10">
+                <label asp-for="CustomerBindingModel.LastName"></label>
+                <input class="form-control" asp-for="CustomerBindingModel.LastName" />
+                <span asp-validation-for="CustomerBindingModel.LastName"></span>
+            </div>
+
+            <div class="form-group mb10">
+                <label asp-for="CustomerBindingModel.EmailAddress"></label>
+                <input class="form-control" asp-for="CustomerBindingModel.EmailAddress" />
+                <span asp-validation-for="CustomerBindingModel.EmailAddress"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CustomerBindingModel.Phone"></label>
+                <input class="form-control" asp-for="CustomerBindingModel.Phone" />
+                <span asp-validation-for="CustomerBindingModel.Phone"></span>
+            </div>
+
+        </div>
+
+        <div id="customer" class="basictext p20">
+        @foreach (var addy in Model.AddressBindingModel)
+        {
+            <div style="margin-bottom: 20px">
+                <h3>Address</h3>
+                <partial name="_AddressForm" model="addy" />
+            </div>
+        }
+        </div>
+
+    </div>
+
+    <button class="ui-button" type="submit">Update</button>
+
+</form>
+
+    <div id="orders"></div>
+
 

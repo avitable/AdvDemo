@@ -1,69 +1,90 @@
 ﻿@{
-    ViewData["Title"] = "About This Page";
+    ViewData["Title"] = "Full Stack Demo";
 }
 
 
 
-<div class="text-center">
-    <h1>@ViewData["Title"]</h1>
-    <p>
-        Hi! This is a demo site I put together for the VCU School of Medicine. As the open position with SOMTech is for a full stack developer,
-        my goal was to exercise as much of the stack as possible, to provide a hopefully clearer view of my current skillset.
-        
-        This is not a production ready app, and there are inconsistensies in how I accomplish similar tasks.  In some cases I use a technique to simply (re)familiarize myself myself with it. 
+<div>
+    <h1 class="text-center mb20">@ViewData["Title"]</h1>
 
-        Two invaluable resources I used for the excersise were ASP.NET In Action and Programming C#.
+    <div class="flexrow archbox-container bottom-margin">
+        <div class="basictext">
+            <h3>Introduction</h3>
+            <p>
+            Hi! This is a demo site I put together for the VCU School of Medicine. As the open position with SOMTech is for a full stack developer,
+            my goal was to exercise as much of the stack as possible, to provide a hopefully clearer view of my current skillset.
+            </p>
+            <p>
+            This is not a production ready app!  Code needs to be factored out of the Razor code behind to make it testable, exception handling is 
+            minimal, more user input validation needs to be done, better nav.  In some cases I use a technique to simply (re)familiarize myself myself with it. 
+            </p>
+            <p>
+            Two invaluable resources I used for the excersise were ASP.NET In Action and Programming C#.  Online MS docs and StackOverflow were my next two candidates.
+            </p>
+            <p>
+            You can retrieve the full source on <a href="https://github.com/avitable/AdvDemo">Github</a>.
+            </p>
+        </div>
 
-        You can retrieve the full source at <a href="https://github.com/avitable/AdvDemo">Github Project</a>.
-    </p>
+        <div class="basictext">
+            <h3>Stack Components Exercised (Or Not)</h3>
+            <ul>
+                <li class="green">Hardware procurement & configuration</li>
+                <li class="green">Database</li>
+                <li class="green">Back End Development</li>
+                <li class="green">Front End Development</li>
+                <li class="green">Version Control</li>
+                <li class="green">Validation</li>
+                <li class="green">Logging</li>
+                <li class="red">Requirements / Planning</li>
+                <li class="red">Exception Handling</li>
+                <li class="red">Testing</li>
+                <li class="red">Authentication / Authorization</li>
+            </ul>
 
-    <p>
-        
-        Hardware procurement & configuration: Yes
-        Database: Yes
-        Back End Development: Yes
-        Front End Development: Yes
-        Version Control: Yes
-        Logging: Yes
 
-        Requirements / Planning: No
-        Testing: No
-        Authentication: No
-        Authorization: No
-
-    </p>
+        </div>
+    </div>
 
     <div class="flexrow archbox-container bottom-margin">
         <div class="archbox">
             <h3>App Components</h3>
-            <p>ASP.NET 8 / .NET 8: Razor Pages, MVC controllers, Minimal API, Web API</p>
-            <p>Sql Server 2014</p>
-            <p>Azure App Service</p>
-            <p>Azure Blob Storage (for images)</p>
-            
+            <ul>
+                <li>ASP.NET 8 / .NET 8: Razor Pages, MVC controllers, Minimal API, Web API</li>
+                <li>Sql Server 2014</li>
+                <li>Azure App Service</li>
+                <li>Azure Blob Storage (for images)</li>
+            </ul>
         </div>
 
         <div class="archbox">
             <h3>Dev Tools</h3>
-            <p>Windows 11 on Macbook Pro via Paralells.</p>
-            <p>Visual Studio 2022</p>
-            <p>SSMS</p>
-            <p>Git Bash</p>
-            <p>ESLint</p>
+            <ul>
+                <li>Windows 11 on Macbook Pro via Paralells.</li>
+                <li>Visual Studio 2022</li>
+                <li>SSMS</li>
+                <li>Git Bash</li>
+                <li>ESLint</li>
+            </ul>
         </div>
 
         <div class="archbox">
             <h3>Database</h3>
-            <p>Entity Framework Core (scaffolded then customized)</p>
-            <p>AdventureWorks</p>
-            <p>Connection Strings in Environment Variables</p>
+            <ul>
+                <li>Entity Framework Core (scaffolded then customized)</li>
+                <li>AdventureWorks</li>
+                <li>Connection Strings in Environment Variables</li>
+            </ul>
         </div>
 
         <div class="archbox">
             <h3>Frontend</h3>
-            <p>jQuery</p>
-            <p>Datatables</p>
-            <p>CSS Flexbox w/ Media Queries</p>
+            <ul>
+                <li>jQuery</li>
+                <li>Datatables</li>
+                <li>CSS Flexbox w/ Media Queries</li>
+                <li>Bootstrap (shipped with template, and had some handy nav)</li>
+            </ul>
         </div>
     </div>
 

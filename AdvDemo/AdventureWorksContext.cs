@@ -52,6 +52,7 @@ public partial class AdventureWorksContext : DbContext
         modelBuilder.Entity<CustomerAddress>().ToTable("CustomerAddress");
         modelBuilder.Entity<SalesOrderHeader>().ToTable("SalesOrderHeader");
         modelBuilder.Entity<SalesOrderDetail>().ToTable("SalesOrderDetail");
+        modelBuilder.Entity<Address>().ToTable("Address");
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
